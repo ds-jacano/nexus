@@ -1,30 +1,33 @@
 version: v2
 
+tasks:
+  install-dependencies:
+    - yarn install
+
 config:
   contracts:
     evm:
       enabled: true
-      solc: "0.8.26"
+      solc: "0.8.27"
       framework: "hardhat"
-      framework-version: "2.22.19"
-      node-version: "22"
-      package-manager: "npm"
-      package-manager-version: "10.9.0"
+      framework-version: "^2.22.4"
+      node-version: "20"
+      package-manager: "yarn"
+      package-manager-version: "1.22.22"
+      source-directory: "./contracts/"
+      excluded-paths:
+        - "contracts/mocks/"
     solana:
       enabled: false
+
   secrets:
     enabled: true
+
   iac:
     enabled: true
+
   dependencies:
     js:
       enabled: true
     rust:
       enabled: false
-  compliance:
-    genius:
-      enabled: false
-
-tasks:
-  install-dependencies:
-    - npm install
